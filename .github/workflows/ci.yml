@@ -29,6 +29,14 @@ jobs:
     - name: Test
       run: cd skycompare-backend-main && go test -v ./...
 
+    - name: Cache golangci-lint
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/golangci-lint
+        key: golangci-lint-${{ runner.os }}-${{ hashFiles('skycompare-backend-main/.golangci.yml') }}
+        restore-keys: |
+          golangci-lint-${{ runner.os }}-
+
     - name: Run golangci-lint
       uses: golangci/golangci-lint-action@v4
       with:
