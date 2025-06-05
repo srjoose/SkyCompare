@@ -49,7 +49,7 @@
     setTimeout(() => (loading.value = false), 2000);
 
     if(password.value == password2.value){
-      await axios.get("https://skycompare-backend.onrender.com/register", {
+      await axios.get("https://skycompare.onrender.com/register", {
         params: {
           nickname: nickname.value,
           full_name: name.value,
