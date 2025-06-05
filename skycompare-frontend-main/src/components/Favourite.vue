@@ -45,7 +45,7 @@ export default {
   }),
   mounted(){
     this.user = sessionStorage.getItem("user");
-    axios.get("https://skycompare-backend.onrender.com/airports").then(res => {
+    axios.get("https://skycompare.onrender.com/airports").then(res => {
       var aux = [];
       aux.push("No favourite airport");
 
@@ -63,7 +63,7 @@ export default {
     },
     async onSubmit(){
       var out = 0;
-      await axios.get("https://skycompare-backend.onrender.com/favAirport", {
+      await axios.get("https://skycompare.onrender.com/favAirport", {
         params: {
           fav: this.favourite,
           user: this.user
