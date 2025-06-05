@@ -124,7 +124,7 @@ export default {
       var airp = [];
       var airpD = [];
       var airpA = [];
-      axios.post("https://skycompare-backend.onrender.com/airports").then(r=>{
+      axios.post("https://skycompare.onrender.com/airports").then(r=>{
         for(var i=0; i<r.data.length; i++){
           airp.push(r.data[i].name + " ("+r.data[i].IATA +")");
           airpD.push(r.data[i].name + " ("+r.data[i].IATA +")");
@@ -142,7 +142,7 @@ export default {
       if(type=="departures") airport = this.departure;
       var IATA = airport.substring(airport.indexOf("(")+1, airport.indexOf(")"));
 
-      await axios.get("https://skycompare-backend.onrender.com/airports/selected", {
+      await axios.get("https://skycompare.onrender.com/airports/selected", {
         params:{
           IATA: IATA,
         }
@@ -163,7 +163,7 @@ export default {
       var departure = this.departure.substring(this.departure.indexOf("(")+1, this.departure.indexOf(")"));
       var arrival = this.arrival.substring(this.arrival.indexOf("(")+1, this.arrival.indexOf(")"));
 
-      await axios.get("https://skycompare-backend.onrender.com/routes", {
+      await axios.get("https://skycompare.onrender.com/routes", {
         params:{
           dep: departure,
           arr: arrival
@@ -204,7 +204,7 @@ export default {
       this.getFavouriteAirport();
     },
     getFavouriteAirport(){
-      axios.get("https://skycompare-backend.onrender.com/favAirportGet", {
+      axios.get("https://skycompare.onrender.com/favAirportGet", {
         params:{
           nickName: this.nickname
         }
@@ -235,7 +235,7 @@ export default {
         }
       }
 
-      axios.get("https://skycompare-backend.onrender.com/save", {
+      axios.get("https://skycompare.onrender.com/save", {
         params:{
           nickname: this.nickname,
           route_id: this.flies[0].route.id,
