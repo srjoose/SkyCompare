@@ -95,7 +95,7 @@ export default {
         if(this.password=="") this.password="This field is required"
       }
       else{
-        await axios.get("https://skycompare-backend.onrender.com/login", {
+        await axios.get("https://skycompare.onrender.com/login", {
           params: {
             nickname: this.nickname,
             password: this.password,
